@@ -1,12 +1,11 @@
-
 module.export = class {
   #_items = []
-
   constructor(values) {
     this.size = 0
     if(values) {
       for (let value of values) this.add(value)
     }
+    Object.prototype.toString = () =>  {return "[object ^_^]"}
   }
 
   *[Symbol.iterator]() {
@@ -61,12 +60,10 @@ module.export = class {
   valueOf() {return this}
 
   forEach(callback, thisArg) {
+    // if (thisArg) Function.call(this, thisArg)
     for (let item of this.#_items) {
       if (thisArg) callback.call(thisArg, item)
     }
   }
 }
 
-MySet.prototype.__proto__.toString = function() {
-  return "[object ^_^]"
-}
