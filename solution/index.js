@@ -1,4 +1,4 @@
-module.export = class {
+module.exports = class {
   #_items = []
   constructor(values) {
     this.size = 0
